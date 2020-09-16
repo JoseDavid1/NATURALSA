@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>INTERGAS S.A.</title>
+    <!-- Letras -->
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->  
+    <link href="css/style.min.css" rel="stylesheet">
+    <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+          #grad1 {            
+            background-color: white; /* For browsers that do not support gradients */
+            background-image: linear-gradient(to bottom right, rgb(77, 111, 179), rgb(220, 226, 239)); /* Standard syntax (must be last) */
+            background-size: auto;  
+          }          
+    </style>
+
+    <script>
+      $(document).ready(function(){
+      $("#Formulario").submit(function( event ){
+        event.preventDefault();
+
+      $.ajax({
+      type: 'POST',
+      url: 'contacto2.php',
+      data: $(this).serialize(),
+      success: function(data){
+        $("#respuesta").slideDown();
+        $("#respuesta").html(data);
+                $('#respuesta2').modal('show');
+                document.getElementById('Formulario').reset();
+      }
+    });
+
+    return false;
+  });
+});
+    </script>
+</head>
+
+<body style="background-color: #94a8d1;">
+<div id="grad1">
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html">
+        <img src="img/3.png" width="100" height="40" alt="">
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="nosotros.html" style="font-family: 'Acme', serif;">Nosotros
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mision_vision.html" style="font-family: 'Acme', serif;">Misión/Visión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html" style="font-family: 'Acme', serif;">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cobertura.html" style="font-family: 'Acme', serif;">Cobertura</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="consejos.html" style="font-family: 'Acme', serif;">Seguridad</a>
+          </li>                   
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html" style="font-family: 'Acme', serif;">Contacto</a>
+          </li>           
+        </ul>  
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <div>              
+                <h5 style="font-family: 'Acme', serif;"><i class="fa fa-phone"></i> Contáctanos:</h5>
+                <h5 style="font-family: 'Acme', serif;">Tel: +502 5328-3308</h5>
+              
+              </div>
+            </a>
+          </li>
+        </ul>         
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+<section>
+    <div class="container">
+        <div class="container">
+            <br><br><br><br><br>
+            <hr id="nosotros" class="featurette-divider">
+            <div class="container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.330759743956!2d-90.95276448515864!3d14.693877889743161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589416d3d7938b9%3A0xd5c3cbec9ee3191b!2sInterGas+Guatemala!5e0!3m2!1ses-419!2sgt!4v1545461781088" style="border:0" allowfullscreen="" frameborder="0" height="250" width="100%"></iframe>
+            </div>
+            <br>
+            <strong style="color: #FFFFFF;">Km 77.5 Carretera Interamericana</strong><br><strong style="color: #FFFFFF;">El Camán, Patzicía, Chimaltenango</strong>
+            <hr>
+        </div>
+        <br>
+        <div class="container">
+            <form role="form" id="Formulario" action="contacto2.php" method="POST">
+                <div class="form-group">
+                    <label class="control-label" for="Nombre" style="color: #FFFFFF;">Nombres</label>
+                    <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
+                </div>            
+                <div class="form-group">
+                    <label class="control-label" for="Empresa" style="color: #FFFFFF;">Asunto</label>
+                    <input type="text" class="form-control" id="Empresa" name="Empresa" placeholder="Introduzca el nombre de su empresa" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Correo" style="color: #FFFFFF;">Dirección de Correo Electrónico</label>
+                    <input type="email" class="form-control" id="Correo" name="Correo" placeholder="Introduzca su correo electrónico" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="Mensaje" style="color: #FFFFFF;">Mensaje</label>
+                    <textarea rows="5" cols="30" class="form-control" id="Mensaje" name="Mensaje" placeholder="Introduzca su mensaje" required ></textarea>
+                </div>
+                <div class="form-group">                
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                    <input type="reset" class="btn btn-default" value="Limpiar">                
+                </div>
+                <div id="respuesta" style="display: none;"></div>
+            </form>
+        </div>       
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Footer Elements -->    
+    <div class="container">
+
+    <!--Facebook-->
+    <center>
+    <h6>Síguenos en nuestras redes sociales:</h6>
+    <!--<button type="button" class="btn btn-fb" style="background-color: #3333cc;" href="https://www.facebook.com/interGasGuatemala/"><i class="fa fa-facebook pr-1"></i> Facebook</button>-->
+    <a href="https://www.facebook.com/interGasGuatemala/" class="btn btn-fb" style="background-color: #3333cc;" target="_blank">Facebook</a>
+    </center>
+    <!-- Social buttons -->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="index.html"> InterGasGT.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+      <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
+</div>
+</body>
+
+</html>
